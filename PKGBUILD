@@ -7,8 +7,10 @@ pkgdesc='nestjs demo application'
 arch=(any)
 makedepends=('npm')
 depends=('nodejs')
-source=('nest.tar.gz::https://github.com/Sun1ive/nestjs-fullstack-demo/releases/download/1.1.0/nest.tar.gz')
+source=('https://github.com/Sun1ive/nestjs-fullstack-demo/releases/download/1.1.0/nest.tar.gz')
 md5sums=('SKIP')
+provides=('APPLICATION_NAME')
+conflicts=('APPLICATION_NAME')
 sha256sums=('SKIP')
 install="${_pkgname}.install"
 
