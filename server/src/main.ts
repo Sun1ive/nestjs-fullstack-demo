@@ -10,6 +10,8 @@ async function bootstrap() {
     .engine('html', renderFile)
     .setBaseViewsDir(join(__dirname, '../../client/build'));
 
+  app.enableCors();
+
   app.useStaticAssets(join(__dirname, '../../client/build'), {
     index: false,
     redirect: false,
