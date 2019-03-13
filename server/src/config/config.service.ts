@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { parse } from 'dotenv';
+import { readFileSync } from 'fs';
+import { IConfig } from 'interfaces/config.interfaces';
 
 @Injectable()
 export class ConfigService {
-  getConfig() {
-    return {
-      PORT: 3000,
-      HOST: '127.0.0.1',
-    };
+  private readonly envConfig: IConfig;
+
+  constructor(filePath: string) {
+    this.envConfig = parse(readFileSync(filePath)) as any;
+  }
+
+  get(key: keyof IConfig): string {
+    return this.envConfig[key];
   }
 }

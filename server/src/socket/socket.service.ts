@@ -6,6 +6,6 @@ export class SocketService {
   constructor(
     @Inject('ConfigService') private readonly configService: ConfigService,
   ) {
-    console.log('CONFIG SERVICE SOCKET MODULE %o', configService.getConfig());
+    console.log('CONFIG SERVICE SOCKET MODULE %o', configService.get('PORT'));
   }
 }
