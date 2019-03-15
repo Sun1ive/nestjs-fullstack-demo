@@ -16,7 +16,6 @@ async function bootstrap() {
     index: false,
     redirect: false,
   });
-  // app.setBaseViewsDir(join(__dirname, '../../client/build'));
 
   await app.listen(3000);
 }
