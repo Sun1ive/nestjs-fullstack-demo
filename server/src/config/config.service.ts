@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { parse } from 'dotenv';
 import { readFileSync } from 'fs';
-import { IConfig } from 'interfaces/config.interfaces';
+import { IConfig } from '../../interfaces/config.interfaces';
 
 @Injectable()
 export class ConfigService {

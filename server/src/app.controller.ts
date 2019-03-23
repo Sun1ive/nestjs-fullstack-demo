@@ -8,7 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { sign } from 'jsonwebtoken';
-import { AuthGuard } from 'shared/auth.guard';
+import { AuthGuard } from '../shared/auth.guard';
 
 @Controller('/api')
 export class AppController {
