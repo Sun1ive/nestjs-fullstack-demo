@@ -9,14 +9,16 @@ import {
 } from '@nestjs/common';
 import { sign } from 'jsonwebtoken';
 import { AuthGuard } from '../shared/auth.guard';
+import { AppService } from './app.service';
 
 @Controller('/api')
 export class AppController {
-  constructor() {}
+  constructor(private readonly appService: AppService) {}
 
   @Get('/test')
-  handler(@Headers() headers, @Query() query) {
-    return { data: 'hello' };
+  async handler(@Headers() headers, @Query() query) {
+    const data = this.appService.fetch(query.id);
+    return { data };
   }
 
   @Get('/login')
