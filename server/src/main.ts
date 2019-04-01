@@ -1,19 +1,14 @@
-import { NestFactory } from '@nestjs/core';
-import { renderFile } from 'ejs';
+import { NestFactory, NestApplication } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
-  app
-    .engine('html', renderFile)
-    .setBaseViewsDir(join(__dirname, '../../client/build'));
+  const app = await NestFactory.create<NestApplication>(AppModule);
 
   app.enableCors();
 
   app.useStaticAssets(join(__dirname, '../../client/build'), {
-    index: false,
+    index: ['index.html'],
     redirect: false,
   });
 

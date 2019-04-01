@@ -11,7 +11,7 @@ import { sign } from 'jsonwebtoken';
 import { AuthGuard } from '../shared/auth.guard';
 import { AppService } from './app.service';
 
-@Controller('/api')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
