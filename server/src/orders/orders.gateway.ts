@@ -4,7 +4,7 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { NestGateway } from '@nestjs/websockets/interfaces/nest-gateway.interface';
-import { Observable, Observer, Subject, BehaviorSubject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway()
@@ -12,18 +12,16 @@ export class OrdersGateway implements NestGateway {
   @WebSocketServer()
   ws: Server;
 
-  public isWsAvailable: BehaviorSubject<any> = new BehaviorSubject(undefined);
+  public isWs: Subject<any> = new Subject();
 
   constructor() {
-    this.isWsAvailable.subscribe(val => {
-      console.log('isWaislchagned', val);
-      if (this.ws) {
-        this.ws.emit('hello', { data: val });
-      }
-    });
+    this.isWs.subscribe(console.log);
 
     setInterval(() => {
-      this.isWsAvailable.next(Math.random());
+      this.isWs.next({
+        a: Math.random() * 100,
+        b: Math.random() * 100,
+      });
     }, 5000);
   }
 

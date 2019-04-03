@@ -25,6 +25,7 @@
     "@nestjs/platform-express": "^6.0.5",
     "@nestjs/platform-socket.io": "^6.0.5",
     "@nestjs/websockets": "^6.0.5",
+    "compression": "^1.7.4",
     "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.5",
+    "@types/compression": "0.0.36",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.1",
